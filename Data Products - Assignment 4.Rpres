@@ -1,0 +1,59 @@
+Shiny App & Reproducible Pitch - Assignment 4
+========================================================
+author: Evan Falcone
+date: `r format(Sys.time(), '%d %B, %Y')`
+autosize: true
+
+<style>
+.small-code pre code {
+  font-size: 0.5em;
+}
+</style>
+
+Harmonograph App: Background
+========================================================
+
+The Harmonograph is an example of "aesthetic mathematics":
+
+It generates beautiful shapes from the plotting of linear
+combinations of sinusoidal and exponential functions with
+randomly generated parameters.
+
+
+Harmonograph App: Motivation
+========================================================
+
+The Harmonograph App is a perfect pedagogical tool in 
+convincing students of both the "beauty" and power of
+mathematics and programming.  
+
+It suffices to click the 'Launch The Harmonograph' button
+repeatedly to generate new, cool shapes with the App.
+
+
+Harmonograph App: Mathematics
+========================================================
+class: small-code
+
+The following custom function generates the Harmonographs'
+shapes to plot:
+
+```{r shinyApp, eval=TRUE}
+f1=jitter(sample(c(2,3),1));f2=jitter(sample(c(2,3),1));f3=jitter(sample(c(2,3),1));f4=jitter(sample(c(2,3),1))
+d1=runif(1,0,1e-02);d2=runif(1,0,1e-02);d3=runif(1,0,1e-02);d4=runif(1,0,1e-02)
+p1=runif(1,0,pi);p2=runif(1,0,pi);p3=runif(1,0,pi);p4=runif(1,0,pi)
+xt = function(t) exp(-d1*t)*sin(t*f1+p1)+exp(-d2*t)*sin(t*f2+p2);yt = function(t) exp(-d3*t)*sin(t*f3+p3)+exp(-d4*t)*sin(t*f4+p4);t=seq(1, 100, by=.001)
+dat=data.frame(t=t, x=xt(t), y=yt(t))
+with(dat, plot(x,y, type="l", xlim =c(-2,2), ylim =c(-2,2), xlab = "", ylab = "", xaxt='n', yaxt='n'))
+```
+
+Harmonograph App: Reproducibility
+========================================================
+
+Feel free to download and reproduce the App from the Github
+link provided below.  
+
+https://github.com/EvanFalcone/Data-Products---Shiny-App---Assignment-4
+
+The link contains the Shiny app code (server.R, ui.R) and documentation
+of its use.
