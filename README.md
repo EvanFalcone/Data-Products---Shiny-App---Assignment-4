@@ -8,7 +8,7 @@ https://www.r-bloggers.com/the-2d-harmonograph-in-shiny/
 
 The accompanying presentation (slides) for the assignment can be found here:  
 
-http://rpubs.com/EstevanFalcone/387777
+http://rpubs.com/EstevanFalcone/388128
 
 The app itself can be run here, hosted on shinyapps.io:
 
